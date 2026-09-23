@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+  <title>FlowMaster · Business Management</title>
+  <meta name="description" content="All-in-one business management for irrigation services. Works offline.">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f62b8">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+
+  <!-- iOS install / standalone -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FlowMaster">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Pre-boot splash; replaced by the shell once JS loads -->
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
+                min-height:100vh;gap:14px;color:#66727e;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+      <img src="icons/icon-192.png" alt="" width="56" height="56" style="border-radius:14px">
+      <div style="font-weight:700;color:#0f62b8">FlowMaster</div>
+    </div>
+  </div>
+
+  <noscript>
+    <div style="max-width:480px;margin:60px auto;padding:24px;text-align:center;font-family:sans-serif">
+      <h2>JavaScript required</h2>
+      <p>FlowMaster runs entirely in your browser. Please enable JavaScript to continue.</p>
+    </div>
+  </noscript>
+
+  <!-- Load order: UI kit → data layer → router → views (register routes) → boot -->
+  <!-- data + libraries (must load before their consumers) -->
+  <script src="js/data/pricebook.js"></script>
+  <!-- core -->
+  <script src="js/components.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/shared.js"></script>
+  <!-- PDF engine (vendored, offline) -->
+  <script src="js/vendor/jspdf.umd.min.js"></script>
+  <script src="js/vendor/jspdf.autotable.min.js"></script>
+  <script src="js/pdf.js"></script>
+  <!-- views -->
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/customers.js"></script>
+  <script src="js/views/pricebook.js"></script>
+  <script src="js/views/invoices.js"></script>
+  <script src="js/views/estimates.js"></script>
+  <script src="js/views/calendar.js"></script>
+  <script src="js/views/financials.js"></script>
+  <script src="js/views/receipts.js"></script>
+  <script src="js/views/reports.js"></script>
+  <script src="js/views/emails.js"></script>
+  <script src="js/views/settings.js"></script>
+  <script src="js/views/placeholders.js"></script>
+  <!-- bootstrap -->
+  <script src="js/app.js"></script>
+</body>
+</html>
